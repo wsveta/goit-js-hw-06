@@ -2,12 +2,16 @@ const input = document.querySelector("#validation-input");
 const length = input.getAttribute("data-length");
 input.addEventListener("blur", isProperValue);
 
-function isProperValue() {
-  if (input.value.length === Number(length)) {
-    input.classList.add("valid");
-    input.classList.remove("invalid");
+function isProperValue(event) {
+  if (event.currentTarget.value.length === Number(length)) {
+    replaceClass("valid", "invalid");
   } else {
-    input.classList.add("invalid");
-    input.classList.remove("valid");
+    replaceClass("invalid", "valid");
   }
+  console.log()
+}
+
+function replaceClass(add, remove) {
+  event.currentTarget.classList.add(add);
+  event.currentTarget.classList.remove(remove);
 }

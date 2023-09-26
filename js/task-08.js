@@ -8,11 +8,11 @@ function getData(event) {
 
   if (login.value && password.value) {
     const user = {};
-    user[login.name] = login.value;
-    user[password.name] = password.value;
+    user[login.name] = login.value.trim();
+    user[password.name] = password.value.trim();
     console.log(user);
+    event.currentTarget.reset();
   } else {
     alert("Всі поля повинні бути заповнені!");
   }
-  form.reset();
 }
